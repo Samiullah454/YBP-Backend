@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>HCA.Application</AssemblyName>
+    <PackageId>HCA.Application</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>HCA</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AuthorizeNet" Version="2.0.3" />
+    <PackageReference Include="Bandwidth.Iris" Version="5.0.0" />
+    <PackageReference Include="Bandwidth.Sdk" Version="10.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HCA.Core\HCA.Core.csproj" />
+    <ProjectReference Include="..\HCA.EntityFrameworkCore\HCA.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>
