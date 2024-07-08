@@ -18,6 +18,14 @@ using HCA.WebSite_Configuration.Slider;
 using HCA.WebSite_Configuration.Service;
 using HCA.WebSite_Configuration.Blog;
 using HCA.Leads;
+using HCA.WebSite_Configuration.Logo;
+using HCA.JobTask;
+using HCA.Enumeration;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Collections.Generic;
+using System.Linq;
+using System;
+using HCA.Offers;
 
 namespace HCA.EntityFrameworkCore
 {
@@ -74,9 +82,40 @@ namespace HCA.EntityFrameworkCore
         public DbSet<ScheduleItem> ScheduleItems { get; set; }
         public DbSet<FactAndFigure> FactAndFigures { get; set; }
         public DbSet<Lead> Leads { get; set; }
+        public DbSet<Logo> Logo { get; set; }
+        public DbSet<JobTasks> JobTasks { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<TargetAudience> TargetAudience { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var audienceTypeConverter = new ValueConverter<List<AudienceType>, string>(
+            v => string.Join(',', v.Select(e => e.ToString())),
+            v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(e => Enum.Parse<AudienceType>(e)).ToList());
+
+            var socialMediaChannelConverter = new ValueConverter<List<SocialMediaChannel>, string>(
+                v => string.Join(',', v.Select(e => e.ToString())),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(e => Enum.Parse<SocialMediaChannel>(e)).ToList());
+
+            var stringListConverter = new ValueConverter<List<string>, string>(
+                v => string.Join(',', v),
+                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
+
+            modelBuilder.Entity<JobTasks>()
+                .Property(e => e.CompletionProofs)
+                .HasConversion(stringListConverter);
+
+            modelBuilder.Entity<JobTasks>()
+                .Property(e => e.TargetStallionSkills)
+                .HasConversion(stringListConverter);
+
+            modelBuilder.Entity<JobTasks>()
+                .Property(e => e.TargetAudience)
+                .HasConversion(audienceTypeConverter);
+
+            modelBuilder.Entity<JobTasks>()
+                .Property(e => e.SocialMediaChannels)
+                .HasConversion(socialMediaChannelConverter);
             modelBuilder.Entity<Blog>()
                 .HasOne(b => b.BlogAuthor)
                 .WithMany(a => a.Blogs)

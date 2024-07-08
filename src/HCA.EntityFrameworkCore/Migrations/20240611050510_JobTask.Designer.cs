@@ -4,6 +4,7 @@ using HCA.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HCA.Migrations
 {
     [DbContext(typeof(HCADbContext))]
-    partial class HCADbContextModelSnapshot : ModelSnapshot
+    [Migration("20240611050510_JobTask")]
+    partial class JobTask
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2890,103 +2892,6 @@ namespace HCA.Migrations
                     b.ToTable("TechnicianJob");
                 });
 
-            modelBuilder.Entity("HCA.JobTask.JobTasks", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Assignee")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompletionProofs")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("EstimatedDurationOfTask")
-                        .HasColumnType("time");
-
-                    b.Property<string>("ExpectedOutputResult")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsRelatedToMarketing")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("JobTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("NumberStallionsRequired")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("RewardPKR")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("SocialMediaChannels")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StallionComments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("StartingReward")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TargetAudience")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TargetAudienceLevel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TargetStallionSkills")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TaskCategory")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorInfo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Video")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("JobTasks");
-                });
-
             modelBuilder.Entity("HCA.Leads.Lead", b =>
                 {
                     b.Property<int>("Id")
@@ -3143,142 +3048,6 @@ namespace HCA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tblNotifications");
-                });
-
-            modelBuilder.Entity("HCA.Offers.Offer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ClicksOnOffer")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OfferEndsOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("OfferGivenBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("OfferPostingPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("OfferStartsOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("TargetAudienceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TargetReach")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TransactionId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TransactionReceiptScreenshot")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VendorContact")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VideoUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Views")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TargetAudienceId");
-
-                    b.ToTable("Offers");
-                });
-
-            modelBuilder.Entity("HCA.Offers.TargetAudience", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Area")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("DeleterUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("DeletionTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Profession")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TargetAudience");
                 });
 
             modelBuilder.Entity("HCA.Packages.Package", b =>
@@ -4755,15 +4524,6 @@ namespace HCA.Migrations
                     b.Navigation("Edition");
 
                     b.Navigation("LastModifierUser");
-                });
-
-            modelBuilder.Entity("HCA.Offers.Offer", b =>
-                {
-                    b.HasOne("HCA.Offers.TargetAudience", "TargetAudience")
-                        .WithMany()
-                        .HasForeignKey("TargetAudienceId");
-
-                    b.Navigation("TargetAudience");
                 });
 
             modelBuilder.Entity("HCA.Packages.Package", b =>

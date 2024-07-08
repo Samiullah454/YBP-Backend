@@ -6,49 +6,90 @@ using System.Threading.Tasks;
 
 namespace HCA.Enumeration
 {
+    public enum TaskStatuses
+    {
+        Pending,
+        InProgress,
+        Completed,
+        Cancelled
+    }
+
+    public enum TaskPriority
+    {
+        Low,
+        Medium,
+        High,
+        Urgent
+    }
+
+    public enum AudienceType
+    {
+        Profession,
+        Age,
+        Gender,
+        Area,
+        City
+    }
+
+    public enum SocialMediaChannel
+    {
+        WhatsApp,
+        SMS,
+        Facebook,
+        YouTube,
+        Instagram
+    }
+
     public enum Services
     {
-        Diagnostic =0,
-        Repair =1,
-        Warranty=2
+        Diagnostic = 0,
+        Repair = 1,
+        Warranty = 2
     }
+
     public enum AssociatedServiceType
     {
-        DiagnosticService=0,
-        RepairService=1
+        DiagnosticService = 0,
+        RepairService = 1
     }
+
     public enum SecAdvAmtType
     {
-        FullPrice=0,
-        Percentage=1
+        FullPrice = 0,
+        Percentage = 1
     }
+
     public enum WarrantyDuration
     {
-        Days=0,
-        Months=1
+        Days = 0,
+        Months = 1
     }
+
     public enum MarkupType
     {
-        Amount=0,
-        Percentage=1
+        Amount = 0,
+        Percentage = 1
     }
+
     public enum SiteType
     {
-        Residential=0,
-        Commercial=1
+        Residential = 0,
+        Commercial = 1
     }
 
     public enum Stories
     {
-        Single=0,
-        Multi=1
+        Single = 0,
+        Multi = 1
     }
+
     public enum IndustryStatus
     {
         Active = 1,
         Deactivated = 0,
         Draft = 2
     }
+
     public enum PackageType
     {
         Trial = 0,
@@ -60,11 +101,13 @@ namespace HCA.Enumeration
         W2Employee = 0,
         Contractor1099 = 1
     }
+
     public enum CompensationType
     {
         Hourly = 0,
         Salary = 1
     }
+
     public enum TechIncentiveType
     {
         None = 0,
@@ -72,12 +115,14 @@ namespace HCA.Enumeration
         perHour = 2,
         perPercentage = 3
     }
+
     public enum ShiftFrequency
     {
         Daily = 0,
         Weekly = 1,
-        Montlhy = 2        
+        Montlhy = 2
     }
+
     public enum ShiftType
     {
         AfterHours = 0,
@@ -85,6 +130,7 @@ namespace HCA.Enumeration
         HolidayShift = 2,
         Normal = 3
     }
+
     public enum AttachmentType
     {
         Certification = 0,
@@ -92,6 +138,7 @@ namespace HCA.Enumeration
         ExperienceCertificate = 2,
         ProfilePic = 3
     }
+
     public enum ContractFrequency
     {
         Weekly = 0,
@@ -101,6 +148,7 @@ namespace HCA.Enumeration
         BiAnually = 4,
         Annually = 5
     }
+
     //public enum TechType
     //{
     //    SuperTech = 0,
@@ -112,6 +160,7 @@ namespace HCA.Enumeration
         //PredefinedSection = 0,
         //EmploymentTypeSection = 1,
         HeaderSection = 0,
+
         PredefinedSection = 1,
         CustomerSection = 2,
         PropertyDetailSection = 3,
@@ -126,6 +175,7 @@ namespace HCA.Enumeration
         BillingSection = 12,
         AttachmentSection = 13
     }
+
     public enum FieldType
     {
         None = 0,
@@ -145,6 +195,7 @@ namespace HCA.Enumeration
         //AddIndustry = 3,
         //Dispatch = 4
         Profile = 0,
+
         JobBuilder = 1,
         EmploymentType = 2
     }
